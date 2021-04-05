@@ -1,0 +1,42 @@
+Node 모듈
+
+npm install --save express body-parser morgan
+
+npm install --save sequelize mysql2
+
+
+
+React 모듈
+
+npm install --save react react-dom redux react-redux redux-thunk react-addons-update
+
+npm install --save axios react-router-dom redux react-redux
+
+npm install --save axios
+
+
+
+
+
+그 외...(Webpack, babel)
+
+npm install --save-dev webpack webpack-cli webpack-dev-server
+
+npm install --save-dev babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react react-hot-loader
+
+npm install --save-dev eslint
+
+npm install @babel/polyfill
+
+
+
+
+
+
+
+
+아직 필요하지 않은 것들
+
+nodemon
+
+cross-env
