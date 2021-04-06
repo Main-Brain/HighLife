@@ -41,27 +41,46 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: [path.resolve(__dirname, "src/js")],
-        loaders: [
-          "babel-loader?" +
-            JSON.stringify({
-              cacheDirectory: true,
-              presets: ["@babel/preset-env", "@babel/preset-react"]
-            })
-        ],
-        exclude: /node_modules/
+        use: ['babel-loader', "eslint-loader"],
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
+          { loader: 'css-hot-loader' },
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
         ],
-        exclude: /node_modules/
-      }
-    ]
+      },
+    ],
   },
+
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.(js|jsx)$/,
+  //       include: [path.resolve(__dirname, "src/js")],
+  //       loaders: [
+  //         "babel-loader?" +
+  //           JSON.stringify({
+  //             cacheDirectory: true,
+  //             presets: ["@babel/preset-env", "@babel/preset-react"]
+  //           })
+  //       ],
+  //       exclude: /node_modules/
+  //     },
+  //     {
+  //       test: /\.scss$/,
+  //       use: [
+  //         "style-loader",
+  //         "css-loader",
+  //         "sass-loader"
+  //       ],
+  //       exclude: /node_modules/
+  //     }
+  //   ]
+  // },
   devtool: 'source-map',
   mode: 'development'
 };

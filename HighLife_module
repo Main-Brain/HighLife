@@ -15,13 +15,17 @@ npm install --save axios react-router-dom redux react-redux
 npm install --save axios
 
 
-scss
+css
 
 npm install --save-dev node-sass style-loader css-loader sass-loader
 
+npm install css-hot-loader --save-dev
+
+npm install --save-dev postcss-loader postcss
 
 
-그 외...(Webpack, babel, eslint)
+
+그 외...(Webpack, babel, eslint, prettier)
 
 npm install --save-dev webpack webpack-cli webpack-dev-server
 
@@ -32,6 +36,8 @@ npm install --save-dev eslint
 npm install @babel/polyfill
 
 npx install-peerdeps --dev eslint-config-airbnb
+
+npm install eslint-loader --save-dev
 
 
 
