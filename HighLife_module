@@ -1,4 +1,4 @@
-Node 모듈
+Node
 
 npm install --save express body-parser morgan
 
@@ -6,7 +6,7 @@ npm install --save sequelize mysql2
 
 
 
-React 모듈
+React
 
 npm install --save react react-dom redux react-redux redux-thunk react-addons-update
 
@@ -15,10 +15,13 @@ npm install --save axios react-router-dom redux react-redux
 npm install --save axios
 
 
+scss
+
+npm install --save-dev node-sass style-loader css-loader sass-loader
 
 
 
-그 외...(Webpack, babel)
+그 외...(Webpack, babel, eslint)
 
 npm install --save-dev webpack webpack-cli webpack-dev-server
 
@@ -28,7 +31,7 @@ npm install --save-dev eslint
 
 npm install @babel/polyfill
 
-
+npx install-peerdeps --dev eslint-config-airbnb
 
 
 

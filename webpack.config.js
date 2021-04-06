@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
-  entry: ["@babel/polyfill", "./src/index.js"],
+  entry: ["@babel/polyfill", "./src/js/index.js", './src/scss/main.scss'],
 
   output: {
     path: __dirname + "/public/",
@@ -12,15 +12,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: [path.resolve(__dirname, "src/")],
+        test: /\.(js|jsx)$/,
+        include: [path.resolve(__dirname, "src/js")],
         loader: "babel-loader",
         exclude: /node_modules/,
         query: {
           cacheDirectory: true,
           presets: ["@babel/preset-env", "@babel/preset-react"]
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ],
+        exclude: /node_modules/
       }
     ]
-  }
+  },
+  mode: 'production'
 };

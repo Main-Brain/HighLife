@@ -5,7 +5,8 @@ module.exports = {
   entry: [
     "@babel/polyfill",
     "react-hot-loader/patch",
-    "./src/index.js",
+    "./src/js/index.js",
+    './src/scss/main.scss',
     "webpack-dev-server/client?http://0.0.0.0:4000",
     "webpack/hot/only-dev-server"
   ],
@@ -39,8 +40,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: [path.resolve(__dirname, "src/")],
+        test: /\.(js|jsx)$/,
+        include: [path.resolve(__dirname, "src/js")],
         loaders: [
           "babel-loader?" +
             JSON.stringify({
@@ -49,7 +50,18 @@ module.exports = {
             })
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ],
+        exclude: /node_modules/
       }
     ]
-  }
+  },
+  devtool: 'source-map',
+  mode: 'development'
 };

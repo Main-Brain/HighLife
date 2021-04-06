@@ -52,37 +52,53 @@ class Authentication extends Component {
   render() {
     const inputBoxes = (
       <div>
-        <input
-          name="user_id"
-          type="text"
-          placeholder="아이디(이메일)"
-          onChange={this.handleChange}
-          value={this.state.user_id}
-        />
-        <br />
-        <input
-          name="user_pw"
-          type="password"
-          placeholder="비밀번호"
-          onChange={this.handleChange}
-          value={this.state.user_pw}
-        />
+        <p className="input">
+          <input
+            name="user_id"
+            type="text"
+            className="text"
+            maxLength="20"
+            placeholder="아이디"
+            onChange={this.handleChange}
+            value={this.state.user_id}
+          />
+        </p>
+        <p className="input">
+          <input
+            name="user_pw"
+            type="password"
+            className="text"
+            maxLength="20"
+            placeholder="비밀번호"
+            onChange={this.handleChange}
+            value={this.state.user_pw}
+          />
+        </p>
       </div>
     );
 
     const loginView = (
-      <div>
+      <form onSubmit={this.handleLogin}>
         {inputBoxes}
-        <button type="submit" onClick={this.handleLogin}>
-          로그인
-        </button>
-        <br />
-        <Link to="/register">회원가입</Link>
-      </div>
+        <p className="submit">
+          <input type="submit" className="text" value="로그인" />
+        </p>
+        <label className="autologin">
+          <input type="checkbox" name="autologin" value="1" />
+          로그인 유지
+        </label>
+        <p class="find">
+          <Link to="/forgot">아이디/비밀번호 찾기</Link>
+        </p>
+        <p className="register">
+          <span>하이라이프가 처음이신가요?</span>
+          <Link to="/register">회원가입</Link>
+        </p>
+      </form>
     );
 
     const registerView = (
-      <div>
+      <form onSubmit={this.handleRegister}>
         {inputBoxes}
         <input
           name="user_re_pw"
@@ -105,15 +121,13 @@ class Authentication extends Component {
           value={this.state.user_name}
         />
         <br />
-        <button type="submit" onClick={this.handleRegister}>
-          회원가입
-        </button>
-      </div>
+        <input type="submit" className="text" value="회원가입" />
+      </form>
     );
 
     return (
-      <div>
-        <h1>{this.props.isMember ? loginView : registerView}</h1>
+      <div id="container">
+        {this.props.isMember ? loginView : registerView}
       </div>
     );
   }
