@@ -16,6 +16,12 @@ module.exports = {
     filename: "bundle.js"
   },
 
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/js'),
+    },
+  },
+
   devServer: {
     hot: true,
     filename: "bundle.js",
@@ -31,18 +37,24 @@ module.exports = {
     hints: process.env.NODE_ENV === "production" ? "warning" : false
   },
 
-  plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ],
-
   module: {
     rules: [
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: [
+      //     {
+      //       loader: "eslint-loader",
+      //       // options: {
+      //       //   fix: true,
+      //       // },
+      //     }
+      //   ]
+      // },
       {
         test: /\.(js|jsx)$/,
-        use: ['babel-loader', "eslint-loader"],
         exclude: /node_modules/,
+        use: 'babel-loader',
       },
       {
         test: /\.scss$/,
@@ -81,6 +93,13 @@ module.exports = {
   //     }
   //   ]
   // },
-  devtool: 'source-map',
+
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
+
+  devtool: 'eval',
   mode: 'development'
 };

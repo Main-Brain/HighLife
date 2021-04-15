@@ -1,5 +1,7 @@
 import express from "express";
 import auth from "./auth";
+import board from "./board";
+import topic from "./topic";
 
 const router = express.Router();
 
@@ -10,5 +12,7 @@ router.use("/*", (req, res, next) => {
 });
 
 router.use("/auth", auth);
+router.use("/board", board);
+router.use("/topic", topic);
 
 export default router;

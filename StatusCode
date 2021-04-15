@@ -1,0 +1,32 @@
+2XX (성공)
+클라이언트가 요청한 동작을 수신했고 수락했으며 성공적으로 처리했다는 것을 나타낸다.
+
+200 : OK. 요청 성공
+201 : Created. 생성 요청 성공
+202 : Accepted. 요청 수락(처리는 보장되지 않는다)
+204 : No Centent. 성공했으나 응답 본문 데이터가 없다.
+205 : Reset Content. 성공했으나 클라이언트의 화면을 새로 고침하도록 권고한다.
+206 : Partial Conent. 성공했으나 일부 범위의 데이터만 반환한다.
+3XX (Re-Direction)
+클라이언트는 요청을 마치기 위해 추가 동작을 취해야한다.
+
+300 : Multiple choices. 여러 리소스에 대한 요청 결과 목록
+301 : Moved Permanently. 요청한 자원의 URI이 변경되었거나 새 URI에 존재 하는 경우
+302 : Found. 요청한 자원의 URI가 일시적으로 변경되었음을 말한다.
+303 : See Other. 요청한 자원을 다른 URI에서 GET요청을 통해 얻어아 할 때 보내는 응답
+304 : Not Modified. 캐시 목적으로 사용되며, 응답이 수정되지 않았음을 알려준다.
+4XX (요청 오류)
+클라이언트에 오류가 있음을 나타낸다.
+
+400 : Bad Request. 잘못된 요청
+401 : Unauthorized. 권한 없이 요청하는 경우, Authorization 헤더가 잘못 된 경우
+403 : Forbidden. 서버에서 해당 자원에 대한 접근 금지(요청 거부)
+404 : Not Found. 요청받은 자원을 찾을 수 없는 경우
+405 : Method Not Allowed. 허용되지 않은 요청 메소드
+409 : Conflict. 현재 서버와 충돌 될 때 발생 (파일 업로드 시 버전 충돌 등)
+5XX (서버 오류)
+서버가 유효한 요청을 명백하게 수행하지 못했음을 나타낸다.
+
+500 : Internal Server Error. 서버에 문제가 있는데 정확한 문제를 설명 할 수 없음
+501 : Not Implemented. 서버가 지원하지 않는 요청
+503 : Service Unavailable. 과부하 등으로 당장 서비스가 불가능한 상태

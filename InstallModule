@@ -4,6 +4,9 @@ npm install --save express body-parser morgan
 
 npm install --save sequelize mysql2
 
+npm install --save jsonwebtoken
+
+npm install --save-dev nodemon cross-env
 
 
 React
@@ -37,15 +40,6 @@ npm install @babel/polyfill
 
 npx install-peerdeps --dev eslint-config-airbnb
 
-npm install eslint-loader --save-dev
+npm install eslint-loader babel-eslint --save-dev
 
-
-
-
-
-
-아직 필요하지 않은 것들
-
-nodemon
-
-cross-env
+npm install --save-dev @babel/node

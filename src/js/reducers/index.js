@@ -1,7 +1,8 @@
-import authentication from "./authentication";
-
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
+import authentication from './authentication';
+import topic from './topic';
 
 export default combineReducers({
-  authentication
+  authentication,
+  topic,
 });

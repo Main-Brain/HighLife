@@ -1,36 +1,42 @@
-const webpack = require("webpack");
-const path = require("path");
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-  entry: ["@babel/polyfill", "./src/js/index.js", './src/scss/main.scss'],
+  entry: ['@babel/polyfill', './src/js/index.js', './src/scss/main.scss'],
 
   output: {
-    path: __dirname + "/public/",
-    filename: "bundle.js"
+    path: path.resolve(__dirname, './public'),
+    filename: 'bundle.js',
+  },
+
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/js'),
+    },
   },
 
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: [path.resolve(__dirname, "src/js")],
-        loader: "babel-loader",
+        include: [path.resolve(__dirname, 'src/js')],
+        loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
           cacheDirectory: true,
-          presets: ["@babel/preset-env", "@babel/preset-react"]
-        }
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
         test: /\.scss$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ],
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
-  mode: 'production'
+  mode: 'production',
 };
