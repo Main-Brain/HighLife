@@ -1,6 +1,6 @@
 import Authentication from './Authentication';
 import Navigation from './Navigation';
 import SubNavigation from './SubNavigation';
-import Board from './Board';
+import BoardList from './BoardList';
 
-export { Authentication, Navigation, SubNavigation, Board };
+export { Authentication, Navigation, SubNavigation, BoardList };

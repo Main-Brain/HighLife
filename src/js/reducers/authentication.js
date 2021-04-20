@@ -15,11 +15,8 @@ const initialState = {
   }
 };
 
-export default function authentication(state, action) {
-  if (typeof state === "undefined") state = initialState;
-
+export default function authentication(state = initialState, action) {
   switch (action.type) {
-    /* LOGIN */
     case types.AUTH_LOGIN:
       return update(state, {
         login: {
@@ -39,25 +36,6 @@ export default function authentication(state, action) {
     case types.AUTH_LOGIN_FAILURE:
       return update(state, {
         login: {
-          status: { $set: "FAILURE" }
-        }
-      });
-    case types.AUTH_REGISTER:
-      return update(state, {
-        register: {
-          status: { $set: "WAITING" },
-          error: { $set: -1 }
-        }
-      });
-    case types.AUTH_REGISTER_SUCCESS:
-      return update(state, {
-        register: {
-          status: { $set: "SUCCESS" }
-        }
-      });
-    case types.AUTH_REGISTER_FAILURE:
-      return update(state, {
-        register: {
           status: { $set: "FAILURE" }
         }
       });

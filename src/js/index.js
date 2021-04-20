@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { MainBoard, Login, Register, Timetable } from "@/containers";
-import "../scss/main.scss"
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";

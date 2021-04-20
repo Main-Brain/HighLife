@@ -12,20 +12,20 @@ export default function topic(state = initialState, action) {
   const { type, data } = action;
 
   switch (type) {
-    case types.TOPIC_LIST:
+    case types.BOARD_LIST:
       return update(state, {
         list: {
           status: { $set: "WAITING" }
         }
       });
-    case types.TOPIC_LIST_SUCCESS:
+    case types.BOARD_LIST_SUCCESS:
       return update(state, {
         list: {
           status: { $set: 'SUCCESS' },
           data: { $set: data }
         }
       });
-    case types.TOPIC_LIST_FAILURE:
+    case types.BOARD_LIST_FAILURE:
       return update(state, {
         list: {
           status: { $set: "FAILURE" }

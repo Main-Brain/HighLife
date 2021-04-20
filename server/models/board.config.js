@@ -1,5 +1,7 @@
 import Sequelize from "sequelize";
 import sequelize from "./db_config";
+import TB_TOPIC from "./topic.config";
+import TB_USER from "./auth.config";
 
 const TB_BOARD = sequelize.define("tb_board", {
   idx: {
@@ -16,7 +18,7 @@ const TB_BOARD = sequelize.define("tb_board", {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  topic_idx: {
+  fk_topic_idx: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
@@ -25,13 +27,13 @@ const TB_BOARD = sequelize.define("tb_board", {
     allowNull: false
   },
   board_content: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   file: {
     type: Sequelize.STRING
   },
-  user_idx: {
+  fk_user_idx: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
@@ -54,7 +56,11 @@ const TB_BOARD = sequelize.define("tb_board", {
 });
 
 TB_BOARD.sync()
-  .then(() => console.log("Success board.config."))
+  .then(() => {
+    TB_BOARD.belongsTo(TB_TOPIC, {foreignKey: 'fk_topic_idx', targetKey: 'idx'});
+    TB_BOARD.belongsTo(TB_USER, {foreignKey: 'fk_user_idx', targetKey: 'idx'});
+    console.log("Success board.config.");
+  })
   .catch(err => console.log("Fail board.config. Error:", err));
 
 export default TB_BOARD;

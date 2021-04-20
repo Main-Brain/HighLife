@@ -1,18 +1,16 @@
 import express from "express";
+import Sequelize from "sequelize";
 import TB_BOARD from "../models/board.config";
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  // const {user_id, user_pw} = req.body;
-  
-  let status = 404;
+  let result = false;
   let data_list = [];
 
   const check = (datas) => {
     if (datas.length > 0) {
-      status = 200;
-      // console.log(datas);
+      result = true;
       for (let i in datas) {
         data_list.push(datas[i].dataValues);
       }
@@ -20,7 +18,7 @@ router.get("/", (req, res) => {
   };
 
   const respond = () => {
-    return res.json({status: status, data: data_list});
+    return res.json({result: result, data: data_list});
   };
 
   const error = (err) => {

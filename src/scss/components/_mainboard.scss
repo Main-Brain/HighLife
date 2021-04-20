@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+.topic {
+  display: flex;
+  position: relative;
+  height: 33px;
+  padding-top: 9px;
+
+  .list {
+    display: inline-block;
+    position: relative;
+    width: auto !important;
+    height: 31px;
+    margin: 0 12px;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}

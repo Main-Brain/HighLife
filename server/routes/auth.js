@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 router.post("/login", (req, res) => {
   const {user_id, user_pw} = req.body;
   
-  let status = 404;
+  let result = false;
   let data_list = [];
 
   const check = (datas) => {
@@ -21,16 +21,15 @@ router.post("/login", (req, res) => {
         expiresIn: '10m'
       });
 
-      status = 200;
+      result = true;
       data_list.push({
-        status: true,
         token: token
       });
     }
   };
 
   const respond = () => {
-    return res.json({status: status, data: data_list});
+    return res.json({result: result, data: data_list});
   };
 
   const error = (err) => {
