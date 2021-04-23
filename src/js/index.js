@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { MainBoard, Login, Register, Timetable } from "@/containers";
+import { MainBoard, Login, Register, Timetable, Post } from "@/containers";
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
@@ -20,6 +20,7 @@ ReactDOM.render(
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/timetable" component={Timetable} />
+        <Route exact path="/board/:board_idx" component={Post} />
       </Switch>
     </Router>
   </Provider>,

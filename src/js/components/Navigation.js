@@ -1,29 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SubNavigation from "./SubNavigation";
 
 const Navigation = () => {
   return (
-    <div>
+    <header>
       <nav>
         <div className="wrap">
           <div id="account">
-            <Link to="/login" className="button">로그인</Link>
-            <Link to="/register" className="button blue">회원가입</Link>
+            <NavLink to="/login" className="button">로그인</NavLink>
+            <NavLink to="/register" className="button blue">회원가입</NavLink>
           </div>
 
           <ul id="menu">
             <li>
-              <Link to="/">게시판</Link>
+              <NavLink to="/" activeClassName="active">게시판</NavLink>
             </li>
             <li>
-              <Link to="/timetable">시간표</Link>
+              <NavLink to="/timetable" activeClassName="active">시간표</NavLink>
             </li>
           </ul>
         </div>
       </nav>
       { location.pathname === '/' && <SubNavigation /> }
-    </div>
+    </header>
   );
 };
 

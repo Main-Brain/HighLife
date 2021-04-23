@@ -8,7 +8,7 @@ const initialState = {
   }
 };
 
-export default function topic(state = initialState, action) {
+export default function board(state = initialState, action) {
   const { type, data } = action;
 
   switch (type) {

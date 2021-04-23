@@ -5,19 +5,21 @@ import { useSelector, useDispatch } from "react-redux";
 
 const BoardList = props => {
   const topic_idx = props.topic_idx;
+
+  let board_list_count = 5;
   const board_list = props.board_list.filter((data) => {
-    return data.fk_topic_idx === topic_idx;
+    board_list_count -= 1;
+    return data.fk_topic_idx === topic_idx && board_list_count >= -1;
   })
 
   return (
-    <div className="board">
-      {console.log(board_list)}
-    {board_list.map((value, key) =>
-      <Link to="/" key={key}>
-        {value.board_title}
-        <p>{value.views}</p>
-      </Link>
-    )}
+    <div className="topic-list">
+      {board_list.map((value, key) =>
+        <Link to={`/board/${value.idx}`} key={key} className="list">
+          <span className="title">{value.board_title}</span>
+          <span className="views">{value.views}</span>
+        </Link>
+      )}
     </div>
   );
 }

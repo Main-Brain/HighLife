@@ -6,8 +6,11 @@ import {
 import axios from "axios";
 
 
-export const boardList = () => (dispatch) => {
-  const url = "/api/board";
+export const boardList = (board_idx=false) => (dispatch) => {
+  let url = "/api/board";
+  if (board_idx) {
+    url += "?board_idx=" + board_idx
+  }
   dispatch({ type: BOARD_LIST });
 
   return axios

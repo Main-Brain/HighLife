@@ -5,8 +5,8 @@ import { topicList } from "@/actions/topic";
 import { boardList } from "@/actions/board";
 
 const MainBoard = props => {
-  const topic_list = useSelector(state => state.topic.list);
-  const board_list = useSelector(state => state.board.list);
+  const topic_list = useSelector(state => state.topic.list.data);
+  const board_list = useSelector(state => state.board.list.data);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,16 +21,18 @@ const MainBoard = props => {
     <div>
       <Navigation />
 
-      <div id="container" className="mainboard">
-        {topic_list.data.map((value, key) =>
-          <div key={key}>
-            <h2>
-              {value.topic_name}
-            </h2>
-            <BoardList topic_idx={value.idx} board_list={board_list.data}/>
-          </div>
-        )}
-      </div>
+      <section id="container" className="mainboard">
+        <div className="main">
+          {topic_list.map((value, key) =>
+            <div key={key} className="board">
+              <h2>
+                {value.topic_name}
+              </h2>
+              <BoardList topic_idx={value.idx} board_list={board_list}/>
+            </div>
+          )}
+        </div>
+      </section>
     </div>
   );
 }
